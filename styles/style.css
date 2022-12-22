@@ -1,0 +1,129 @@
+@font-face {
+	font-family: 'Hello Headline';
+	src: url('../assets/font/Hello\ Headline.ttf');
+}
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	height: 100vh;
+	font-family: 'Hello Headline', 'Arial Narrow Bold', Impact, Haettenschweiler, sans-serif;
+}
+
+#confettiBG {
+	width: 100vw;
+	height: 100vh;
+	z-index: -99;
+	background-color: #12181b;
+}
+
+
+#game_title {
+	line-height: 0.8;
+}
+
+#main {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.choice {
+	transform: scale(1);
+	transition: transform 0.3s ease;
+}
+
+.slider {
+	width: 100%;
+	max-width: 300px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-around;
+	gap: 10px;
+	position: relative;
+	overflow: hidden;
+	border-radius: 10px;
+}
+
+.player {
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	padding: 10px;
+	border-radius: 10px;
+	z-index: 2;
+}
+
+
+#sliderToggler {
+	height: 100%;
+	width: 50%;
+	background-color: #0070fc;
+	position: absolute;
+	left: 0%;
+	top: 0;
+	transition: all 0.3s ease;
+}
+
+
+.playerX.active,
+.playerO.active {
+	color: #fff;
+}
+
+#sliderToggler.active {
+	left: 50%;
+}
+
+#playBoard {
+	display: grid;
+	grid-template-columns: repeat(3, 80px);
+	grid-template-rows: repeat(3, 80px);
+	row-gap: 10px;
+	column-gap: 10px;
+}
+
+.cell {
+	height: 100%;
+	width: 100%;
+	border: 2px solid #0070fc;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 3em;
+}
+
+.disableClick {
+	pointer-events: none;
+}
+
+.winner{
+	animation: blink 0.5s ease-in infinite;
+}
+
+@keyframes blink {
+	0%, 30%, 70%, 100%{
+		background-color: #fff;
+	}
+	10%, 50%, 90% {
+		background-color: #d1d1d1;
+	}
+}
+
+
+@media (min-width: 768px) {
+	.choice:hover {
+		transform: scale(1.2);
+	}
+
+	#playBoard {
+		grid-template-columns: repeat(3, 130px);
+		grid-template-rows: repeat(3, 130px);
+	}
+}
